@@ -5,6 +5,17 @@ using UnityEngine;
 
 public class EllipsisSample : MonoBehaviour
 {
+    private GUIStyle _guiStyle;
+    private string _test = null; 
+
+    private void Start()
+    {
+        _guiStyle = new GUIStyle();
+        _guiStyle.fontSize = 100;
+
+        _test = Ellipsis.Instance.GetTest();
+    }
+
     private void OnGUI()
     {
         GUILayout.BeginArea(new Rect(0, 0, Screen.width, Screen.height));
@@ -12,7 +23,7 @@ public class EllipsisSample : MonoBehaviour
         GUILayout.BeginHorizontal();
         GUILayout.FlexibleSpace();
 
-        GUILayout.Label(Ellipsis.Instance.GetTest());
+        GUILayout.Label(_test, _guiStyle);
         
         GUILayout.FlexibleSpace();
         GUILayout.EndHorizontal();

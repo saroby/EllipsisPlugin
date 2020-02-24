@@ -9,8 +9,8 @@ public partial class Ellipsis : MonoBehaviour
 #if UNITY_EDITOR
         return "unity editor";
 #elif UNITY_ANDROID
-        var jo = new AndroidJavaObject("com.dotdotdot.Ellipsis");
-        return jo.GetStatic<string>("getTest");
+        var jo = new AndroidJavaObject("com.dotdotdot.ellipsis.Constants");
+        return jo.GetStatic<string>("GetTest");
 #elif UNITY_IOS
         return "TODO"; //TODO
 #endif
