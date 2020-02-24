@@ -32,3 +32,13 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.0'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.1'apply*/
 }
+
+task copyReleaseToUnityFolder(type: Copy) {
+    // delete old aar file
+    delete('../../UnityPlugin/Assets/Plugins/Ellipsis/Android/ellipsis.aar')
+    delete('../../UnityPlugin/Assets/Plugins/Ellipsis/Android/ellipsis.aar')
+    // move new aar and rename it.
+    from 'build/outputs/aar/ellipsis-release.aar'
+    into('../../UnityPlugin/Assets/Plugins/Ellipsis/Android/')
+    rename('ellipsis-release.aar', 'ellipsis.aar')
+}
